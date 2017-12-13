@@ -1,0 +1,11 @@
+<div *ngIf="!card.edit">{{ card.itemName }}
+  <span *ngIf="card.completed">- Completed</span>
+</div>
+<div *ngIf="card.edit">
+  <input type='text' [(ngModel)]="card.itemName" (blur)="card.completeEdit()" />
+</div>
+<div>
+  <button (click)="card.doEdit()" *ngIf="!card.completed">Edit</button>
+  <button (click)="doRemove()">Remove</button>
+  <button (click)="doComplete()" *ngIf="!card.completed">Complete</button>
+</div>
